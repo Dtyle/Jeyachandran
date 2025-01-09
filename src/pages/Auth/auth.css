@@ -1,0 +1,28 @@
+.bg-img {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 33%, #000000 105.17%),
+    url(../../../../public/image/loginAvt.png);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.login .form-box {
+  padding: 0px 40px;
+}
+a {
+  text-decoration: none !important;
+}
+@media (max-width: 900px) {
+  .login .form-box {
+    padding: 0px;
+  }
+}
+@media (max-width: 768px) {
+  .content-center {
+    min-height: 100vh;
+  }
+}

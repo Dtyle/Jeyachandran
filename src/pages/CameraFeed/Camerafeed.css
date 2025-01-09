@@ -1,0 +1,45 @@
+.rule li {
+  display: inline-block;
+  padding: 7px 10px;
+  background-color: #f5f7f9;
+  margin-right: 7px;
+  border-radius: 10px;
+}
+.rule .active {
+  background: linear-gradient(12.03deg, #5c4fc3 16.86%, #2fe6cf 179.72%);
+  color: #ffffff;
+}
+.priority{
+  display: inline-block;
+  padding: 3px 15px;
+  background-color: #f5f7f9;
+  margin-right: 7px;
+  border-radius: 20px;
+}
+.action-management .tab {
+  display: inline-block;
+  padding: 0px 0px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.action-management .active-tab {
+  border-bottom: 2px solid #5c4fc3;
+}
+.monitor .icon {
+  display: block;
+  border: 1px solid;
+  padding: 6px;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  border: 1px solid #d4dde7;
+  cursor: pointer;
+}
+.monitor .icon:hover {
+  color: white;
+  background: #5c4fc3;
+}
+.monitor .active {
+  color: white;
+  background: #5c4fc3;
+}
