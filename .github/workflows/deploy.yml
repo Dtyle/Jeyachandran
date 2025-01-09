@@ -27,7 +27,7 @@ jobs:
 
     - name: Upload Build to EC2
       env:
-        EC2_HOST: "ec2-user@<YOUR_EC2_PUBLIC_IP>"
+        EC2_HOST: "ec2-user@3.110.54.184"
       run: |
         echo "$EC2_SSH_KEY" > ssh_key
         chmod 600 ssh_key
