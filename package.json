@@ -8,6 +8,9 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
+"start": "node app.js",
+  "test": "npm run test",
+  "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
