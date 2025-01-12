@@ -7,27 +7,27 @@ export const AnalticsList = [
   {
     title: "People",
     image: people,
-    count: "In 1,084",
-    count1: "Out 906",
+    count: "peopleIn",
+    count1: "peopleOut",
     desc: "People count of enter and exited",
     color: "#E8FDEC",
   },
   {
-    title: "Face Recognize",
+    title: "Queue Management",
     image: face,
     count: "904",
-    desc: "Attendance registered",
+    desc: "Display the current queue length",
     color: "#FFE9EA",
   },
   {
-    title: "Crowd control",
+    title: "Busiest Floor",
     image: crowd_control,
-    count: "438",
-    desc: "Count of crowd detected",
+    count: "busiestFloor",
+    desc: "Abnormal behaviors detected by security systems",
     color: "#EDEBFF",
   },
   {
-    title: "Trespassers",
+    title: "Abnormal Behavior",
     image: trespassers,
     count: "60",
     desc: "Accessed the  restricted zone",
@@ -36,37 +36,6 @@ export const AnalticsList = [
 ];
 
 export const AlertList = [
-  {
-    question: "Trespass Deductions",
-    count: "5",
-    answer: [
-      {
-        camera: "CAM0003",
-        date_time: "14th August 2024 at 02:54:31 PM",
-        image: `/public/image/dashboard/live-alert/tresspasers/trespass_1.png`,
-      },
-      {
-        camera: "CAM0003",
-        date_time: "14th August 2024 at 02:54:36 PM",
-        image: `/public/image/dashboard/live-alert/tresspasers/trespass_2.png`,
-      },
-      {
-        camera: "CAM0003",
-        date_time: "14th August 2024 at 02:54:47 PM",
-        image: `/public/image/dashboard/live-alert/tresspasers/trespass_3.png`,
-      },
-      {
-        camera: "CAM0003",
-        date_time: "14th August 2024 at 02:56:27 PM",
-        image: `/public/image/dashboard/live-alert/tresspasers/trespass_4.png`,
-      },
-      {
-        camera: "CAM0003",
-        date_time: "14th August 2024 at 02:56:33 PM",
-        image: `/public/image/dashboard/live-alert/tresspasers/trespass_5.png`,
-      },
-    ],
-  },
   {
     question: "Abnormal Behavior",
     count: "3",
@@ -159,28 +128,40 @@ export const EmotionbasedList = [
 ];
 export const CrowdBasedList = [
   {
-    label: "Gold",
+    label: "Ground Floor",
     color: "#5C4FC3",
     bgColor: "#F3F2FF",
     percentage: "8%",
   },
   {
-    label: "Platinum",
+    label: "First Floor",
     color: "#FF4444",
     bgColor: "#FFE9EA",
     percentage: "4%",
   },
   {
-    label: "Diamond",
+    label: "Second Floor",
     color: "#52CC7B",
     bgColor: "#E8FDEC",
     percentage: "3%",
   },
   {
-    label: "Silver",
+    label: "Third Floor",
     color: "#FFCD35",
     bgColor: "#FFF9E6",
     percentage: "85%",
+  },
+  {
+    label: "Fourth Floor",
+    color: "#FFCD35",
+    bgColor: "#FFF9E6",
+    percentage: "75%",
+  },
+  {
+    label: "Fifth Floor",
+    color: "#FFCD35",
+    bgColor: "#FFF9E6",
+    percentage: "5%",
   },
 ];
 export const AgeList = [

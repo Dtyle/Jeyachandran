@@ -2,7 +2,7 @@ import React from "react";
 import Face from "../../../../public/image/dashboard/face-recognition/face.svg";
 import Gauge from "../../../component/chart/Gauge";
 
-const Facerecognition = () => {
+const Facerecognition = ({ data }) => {
   return (
     <section className="custom-cards p-3 mb-3">
       <div className="d-flex align-items-center gap-3">
@@ -14,7 +14,7 @@ const Facerecognition = () => {
           </p>
         </div>
       </div>
-      <Gauge/>
+      <Gauge count={data?.data?.faceRecognitionCount} />
     </section>
   );
 };

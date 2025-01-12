@@ -4,12 +4,14 @@ import Pagination from "../../../component/Pagination/Pagination";
 import SearchBox from "../../../component/Forms/SearchBox";
 import { PeopleList } from "../utils";
 
-const PersonList = () => {
+const PersonList = ({ data }) => {
   return (
     <section className="custom-cards personalList p-3 mb-3">
       <div className="d-flex align-items-center gap-3 mb-3">
         <div className="flex-grow-1 flex-none">
-          <p className="f-13 Helvetica Neue mb-0">5 Persons</p>
+          <p className="f-13 Helvetica Neue mb-0">
+            {data?.data?.detectedPersons?.length} Persons
+          </p>
           <p className="f-11 mb-0 c-lightGrey">Today, 08:36 pm</p>
         </div>
         <div>
@@ -17,7 +19,7 @@ const PersonList = () => {
         </div>
       </div>
       <ul className="mb-0 p-0 mt-2">
-        {PeopleList.map((item, index) => (
+        {data?.data?.detectedPersons?.map((item, index) => (
           <li
             key={index}
             className="d-flex f-13 justify-content-between align-items-center p-2"
@@ -31,11 +33,16 @@ const PersonList = () => {
                 width={23}
                 alt="i"
               />
-              &nbsp; {item.name}
+              &nbsp; {item.suspect_name}
             </small>
-            <small className="c-lightGrey">{item.time}</small>
+            <small className="c-lightGrey">{item.timealerts}</small>
           </li>
         ))}
+        {data?.data?.detectedPersons?.length === 0 && (
+          <li>
+            <small className="d-block text-center mb-0">No data found!</small>
+          </li>
+        )}
       </ul>
       <Pagination />
     </section>

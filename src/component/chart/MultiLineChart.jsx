@@ -87,7 +87,7 @@ const MultiLineChart = () => {
       },
       {
         label: "Diamond",
-        data: [1, 4, 0, 0, 20, 30, 0,25, 0, 0],
+        data: [1, 4, 0, 0, 20, 30, 0, 25, 0, 0],
         borderColor: "#52CC7B",
         borderWidth: 2,
         fill: false,
@@ -108,3 +108,4 @@ const MultiLineChart = () => {
 };
 
 export default MultiLineChart;
+

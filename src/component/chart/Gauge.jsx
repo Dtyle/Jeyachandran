@@ -2,7 +2,7 @@ import React from "react";
 import GaugeComponent from "react-gauge-component";
 import { BsFillSquareFill } from "react-icons/bs";
 
-const Gauge = () => {
+const Gauge = ({ count }) => {
   return (
     <React.Fragment>
       <div className="chart-gauge mt-3">
@@ -25,7 +25,7 @@ const Gauge = () => {
           }}
         />
         <div className="content">
-          <p className="mb-0 text-center f-24 fw-700">904</p>
+          <p className="mb-0 text-center f-24 fw-700">{count}</p>
           <p className="text-center c-lightGrey mb-0 f-12">Total count</p>
         </div>
       </div>

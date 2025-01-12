@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import DashboardHeader from "./components/DashboardHeader";
 import CameraOverview from "./components/CameraOverview";
@@ -12,16 +12,33 @@ import ANPR from "./components/ANPR";
 import GenderAndEmotion from "./components/GenderAndEmotion";
 import CrowdDetection from "./components/CrowdDetection";
 import AgePercentage from "./components/AgePercentage";
-import { useDispatch, useSelector } from "react-redux";
-import { userDetails } from "../../redux/reducer/userSlice";
 import { useFetchData } from "../../hooks/useServiceApi";
-import { getGenderEmotionCounts } from "../../services/apiUrls";
+import {
+  getFace_recognition,
+  getGenderEmotionCounts,
+  getLicenceRecognition,
+  getTraffic_analysis,
+} from "../../services/apiUrls";
+import moment from "moment";
 const Dashboard = () => {
+  const [date, setDate] = useState(new Date());
   const { data: GenderData } = useFetchData({
     key: "getGenderEmotionCounts",
     url: getGenderEmotionCounts,
   });
-  console.log(GenderData);
+  const { data: FaceRecognition } = useFetchData({
+    key: `getFace_recognition?date=${moment(date).format("YYYY-MM-DD")}`,
+    url: `${getFace_recognition}?date=${moment(date).format("YYYY-MM-DD")}`,
+  });
+
+  const { data: LicenceData } = useFetchData({
+    key: "getLicenceRecognition",
+    url: getLicenceRecognition,
+  });
+  const { data: Traffic } = useFetchData({
+    key: "getTraffic_analysis",
+    url: getTraffic_analysis,
+  });
   return (
     <React.Fragment>
       <div className="expire fixed-top d-flex justify-content-center align-items-center">
@@ -39,17 +56,17 @@ const Dashboard = () => {
             <Analytics />
           </Col>
           <Col md={12} lg={5} className="mb-3 px-2">
-            <LiveAlerts />
+            <LiveAlerts data={FaceRecognition} date={date} setDate={setDate} />
           </Col>
           <Col md={6} lg={3} className="px-2">
-            <Facerecognition />
-            <PersonList />
+            <Facerecognition data={FaceRecognition} />
+            <PersonList data={FaceRecognition} />
           </Col>
           <Col md={6} lg={4} className="px-2">
-            <ANPR />
+            <ANPR data={LicenceData?.data} />
           </Col>
           <Col md={12} lg={8} className="px-2">
-            <LicensePlate />
+            <LicensePlate data={LicenceData?.data} />
           </Col>
           <Col md={12} lg={4} className="px-2">
             <GenderAndEmotion data={GenderData} />

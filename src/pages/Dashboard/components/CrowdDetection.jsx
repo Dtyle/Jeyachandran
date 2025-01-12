@@ -14,8 +14,8 @@ const CrowdDetection = () => {
       <div className="d-flex align-items-center gap-3 mb-3">
         <img src={crowd} alt="i" />
         <div>
-          <p className="fw-700 Helvetica Neue mb-0">Crowd Detection</p>
-          <p className="f-13 mb-0 c-lightGrey">Section based crowd detection</p>
+          <p className="fw-700 Helvetica Neue mb-0">Traffic Analysis</p>
+          <p className="f-13 mb-0 c-lightGrey">Section based Traffic</p>
         </div>
       </div>
       <Row>

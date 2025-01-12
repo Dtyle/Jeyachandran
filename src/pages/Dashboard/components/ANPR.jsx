@@ -4,21 +4,18 @@ import Zone2 from "../../../../public/image/dashboard/heat-map/zone2.png";
 import PieChart from "../../../component/chart/PieChart";
 import { Col, Row } from "react-bootstrap";
 import { ColorCodes, StatebasedList, TalukbasedList } from "../utils";
-import { useFetchData } from "../../../hooks/useServiceApi";
-import { getAnprClassification } from "../../../services/apiUrls";
-const ANPR = () => {
-  const { data } = useFetchData({
-    key: "getAnprClassification",
-    url: getAnprClassification,
-  });
-  const States = data?.data?.stateCounts?.map((item, index) => ({
-    label: item.state,
-    count: item.stateCount,
-    color: ColorCodes[index],
-  }));
-  const Taluk = data?.data?.rtoCounts?.map((item, index) => ({
-    label: item.rto_office,
-    count: item.rtoCount,
+
+const ANPR = ({ data }) => {
+  const States = data?.anprClarification?.statebasedCount?.map(
+    (item, index) => ({
+      label: item.stateCode,
+      count: item.count,
+      color: ColorCodes[index],
+    })
+  );
+  const Taluk = data?.anprClarification?.rtobasedCount?.map((item, index) => ({
+    label: item.rtoOffice,
+    count: item.count,
     color: ColorCodes[index],
   }));
   return (

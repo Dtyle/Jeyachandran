@@ -5,6 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import moment from "moment";
 
 export default function CustomTable({ header, list }) {
   return (
@@ -43,23 +44,32 @@ export default function CustomTable({ header, list }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {list.map((item, index) => (
+          {list?.map((item, index) => (
             <TableRow
               key={index}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell className="f-12 py-2" component="th" scope="row">
-                {item.license}{" "}
+                {item.licenseNumber ? item.licenseNumber : "-"}{" "}
               </TableCell>
               <TableCell className="f-12 py-2 c-lightGrey">
-                {item.time ? item.time : "-"}{" "}
+                {item.inTime ? moment(item.inTime).format("hh:mm A") : "-"}{" "}
               </TableCell>
-              <TableCell className="f-12 py-2"> {item.state} </TableCell>
-              <TableCell className="f-12 py-2"> {item.taluk} </TableCell>
+              <TableCell className="f-12 py-2">
+                {" "}
+                {item.outTime
+                  ? moment(item.outTime).format("hh:mm A")
+                  : "-"}{" "}
+              </TableCell>
+              <TableCell className="f-12 py-2">
+                {" "}
+                {item.duration ? item.duration : "-"}{" "}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+      {list?.length === 0 && <small className="d-block text-center mb-0">No data found!</small>}
     </TableContainer>
   );
 }

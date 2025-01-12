@@ -6,14 +6,14 @@ import { AgeList, StatebasedList, TalukbasedList } from "../utils";
 import LinearProgressBar from "../../../component/Progress/LinearProgressBar";
 
 const AgePercentage = ({ data }) => {
-  const total = data?.data?.ageCounts?.reduce(
-    (sum, item) => sum + item.count,
-    0
-  );
-  const result = data?.data?.ageCounts?.map((item) => ({
-    age_group: item.age_group,
-    percentage: ((item.count / total) * 100).toFixed(2),
-  }));
+  // const total = data?.data?.ageGroupCounts?.reduce(
+  //   (sum, item) => sum + item.count,
+  //   0
+  // );
+  // const result = data?.data?.ageGroupCounts?.map((item) => ({
+  //   age_group: item.age_group,
+  //   percentage: ((item.count / total) * 100).toFixed(2),
+  // }));
 
   return (
     <section className="custom-cards p-3 mb-3">
@@ -24,7 +24,7 @@ const AgePercentage = ({ data }) => {
           <p className="f-13 mb-0 c-lightGrey">Percentage based on age</p>
         </div>
       </div>
-      {result?.map((item, index) => (
+      {data?.data?.ageGroupCounts?.map((item, index) => (
         <div key={index} className="py-2 mb-1">
           <label className="f-12 Helvetica Neue">{item.age_group}</label>
           <div className="d-flex gap-3 align-items-center">

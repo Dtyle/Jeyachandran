@@ -7,17 +7,24 @@ import ModalBox from "../../../component/Modal/ModalBox";
 import CCTVIcon from "../../../component/Icon/CCTVIcon";
 import SingleDatePicker from "../../../component/Forms/SingleDatePicker";
 import CustomDateUi from "../../../component/UI/CustomDateUi";
-import { useFetchData } from "../../../hooks/useServiceApi";
-import { getLive_alert } from "../../../services/apiUrls";
-import { formatDate } from "../../../utils";
-const LiveAlerts = () => {
+
+const LiveAlerts = ({ date, setDate, data }) => {
   const [open, setOpen] = useState(false);
   const [details, setDetails] = useState({});
-  const [date, setDate] = useState(new Date());
-  const { data } = useFetchData({
-    key: `${getLive_alert}?alertDate=${formatDate(date)}`,
-    url: `${getLive_alert}?alertDate=${formatDate(date)}`,
-  });
+  console.log(data?.data?.crowsAlert);
+  const formattedData = [
+    {
+      question: "Crowd Alerts",
+      count: "5", // Consider dynamically calculating the count if possible
+      answer:
+        data?.data?.crowsAlert?.map((item) => ({
+          camera: item?.cam_name || "Unknown Camera",
+          date_time: item?.timealerts || "Unknown Date/Time",
+          image: "/image/dashboard/live-alert/tresspasers/trespass_1.png", // Corrected path
+        })) || [], // Provide a fallback in case crowsAlert is undefined
+    },
+  ];
+
   return (
     <section className="custom-cards alerts p-3">
       <ModalBox title={details.title} open={open} setOpen={setOpen}>
@@ -53,14 +60,19 @@ const LiveAlerts = () => {
       <div className="d-flex align-items-center justify-content-between mt-3">
         <hr className="flex-grow-1" />
         <span className="mx-2 f-24 fw-700 Helvetica Neue c-blue">
-          {data?.data}
+          {data?.data?.liverAlerts}
         </span>
         <hr className="flex-grow-1" />
       </div>
       <p className="text-center c-lightGrey">
         Total incidents in <span className="fw-700 c-black">65</span> areas
       </p>
-      <Accordion list={AlertList} setOpen={setOpen} setDetails={setDetails} />
+
+      <Accordion
+        list={[...formattedData, ...AlertList]}
+        setOpen={setOpen}
+        setDetails={setDetails}
+      />
     </section>
   );
 };

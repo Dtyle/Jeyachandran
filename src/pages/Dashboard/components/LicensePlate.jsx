@@ -7,7 +7,7 @@ import Pagination from "../../../component/Pagination/Pagination";
 import { NumberPlateList, VehicleHead } from "../utils";
 import SearchBox from "../../../component/Forms/SearchBox";
 
-const LicensePlate = () => {
+const LicensePlate = ({ data }) => {
   return (
     <div className="custom-cards px-2 mb-3">
       <Row className="camera-overview">
@@ -29,15 +29,19 @@ const LicensePlate = () => {
             <img src={vehicle} alt="vehicle" />
           </div>
           <p className="text-center f-14">Total vehicles</p>
-          <h3 className="text-center fw-700 f-32 mb-0">5</h3>
+          <h3 className="text-center fw-700 f-32 mb-0">
+            {data?.totalNumberOfVehicles}
+          </h3>
         </Col>
         <Col xs={12} md={7}>
           <div className="py-3">
             <div className="d-flex justify-content-between align-items-center mb-4">
-              <p className="f-14 fw-600 mb-0">5 vehicles listed</p>
+              <p className="f-14 fw-600 mb-0">
+                {data?.vehiclesListed?.length} vehicles listed
+              </p>
               <SearchBox />
             </div>
-            <CustomTable header={VehicleHead} list={NumberPlateList}/>
+            <CustomTable header={VehicleHead} list={data?.vehiclesListed} />
             <Pagination />
           </div>
         </Col>
