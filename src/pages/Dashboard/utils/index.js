@@ -15,7 +15,7 @@ export const AnalticsList = [
   {
     title: "Queue Management",
     image: face,
-    count: "904",
+    count: "5",
     desc: "Display the current queue length",
     color: "#FFE9EA",
   },
@@ -29,7 +29,7 @@ export const AnalticsList = [
   {
     title: "Abnormal Behavior",
     image: trespassers,
-    count: "60",
+    count: "0",
     desc: "Accessed the  restricted zone",
     color: "#FFF9E6",
   },
