@@ -37,8 +37,8 @@ const Analytics = () => {
                         {item.count1 && "In"}{" "}
                         {data?.data?.[item.count] >= 0 ||
                         data?.data?.[item.count]
-                          ? data?.data?.[item.count].split("_").join(" ")
-                          : item.count}
+                          ? data?.data?.[item.count]
+                          : item?.count}
                       </p>
                       <p className="f-18 flex-grow-1 fw-700 mb-0">
                         {data?.data?.[item.count1] >= 0 &&

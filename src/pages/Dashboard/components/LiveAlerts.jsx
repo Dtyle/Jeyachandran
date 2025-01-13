@@ -11,7 +11,6 @@ import CustomDateUi from "../../../component/UI/CustomDateUi";
 const LiveAlerts = ({ date, setDate, data }) => {
   const [open, setOpen] = useState(false);
   const [details, setDetails] = useState({});
-  console.log(data?.data?.crowsAlert);
   const formattedData = [
     {
       question: "Crowd Alerts",
@@ -64,9 +63,9 @@ const LiveAlerts = ({ date, setDate, data }) => {
         </span>
         <hr className="flex-grow-1" />
       </div>
-      <p className="text-center c-lightGrey">
+      {/* <p className="text-center c-lightGrey">
         Total incidents in <span className="fw-700 c-black">65</span> areas
-      </p>
+      </p> */}
 
       <Accordion
         list={[...formattedData, ...AlertList]}

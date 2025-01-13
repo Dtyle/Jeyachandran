@@ -61,15 +61,17 @@ export default function CustomTable({ header, list }) {
                   ? moment(item.outTime).format("hh:mm A")
                   : "-"}{" "}
               </TableCell>
-              <TableCell className="f-12 py-2">
+              {/* <TableCell className="f-12 py-2">
                 {" "}
                 {item.duration ? item.duration : "-"}{" "}
-              </TableCell>
+              </TableCell> */}
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      {list?.length === 0 && <small className="d-block text-center mb-0">No data found!</small>}
+      {list?.length === 0 && (
+        <small className="d-block text-center mb-0">No data found!</small>
+      )}
     </TableContainer>
   );
 }

@@ -5,10 +5,36 @@ import { CrowdBasedList } from "../utils";
 import { BsFillSquareFill } from "react-icons/bs";
 import MultiLineChart from "../../../component/chart/MultiLineChart";
 import SingleDatePicker from "../../../component/Forms/SingleDatePicker";
+import { useFetchData } from "../../../hooks/useServiceApi";
+import { getTraffic_analysis } from "../../../services/apiUrls";
+import moment from "moment";
 
 const CrowdDetection = () => {
   const [date, setDate] = useState(null);
+  const { data: Traffic } = useFetchData({
+    key: "getTraffic_analysis",
+    url: getTraffic_analysis,
+  });
+  const Slots = Traffic?.data?.timeline?.map((item) =>
+    moment(item, "hh:mm:ss A").format("hh:mm A")
+  );
+  const floorOrder = [
+    "groundfloor",
+    "firstfloor",
+    "secondfloor",
+    "thirdfloor",
+    "fourthfloor",
+  ];
 
+  const sortedData = Traffic?.data?.todayTimelineGraph?.sort(
+    (a, b) =>
+      floorOrder.indexOf(a.floor_name) - floorOrder.indexOf(b.floor_name)
+  );
+  let PeopleCounts = Traffic?.data?.floorCount?.sort(
+    (a, b) =>
+      floorOrder.indexOf(a.floor_name) - floorOrder.indexOf(b.floor_name)
+  );
+  PeopleCounts = PeopleCounts?.map((item) => item?.totalPeople);
   return (
     <section className="custom-cards p-3 mb-3">
       <div className="d-flex align-items-center gap-3 mb-3">
@@ -31,7 +57,7 @@ const CrowdDetection = () => {
                 &nbsp; {item.label}
               </p>{" "}
               <h3 className="f-20 mb-0 Helvetica Neue fw-700">
-                {item.percentage}
+                {PeopleCounts?.[index] ? PeopleCounts[index] : "0"}
               </h3>
             </div>
           </Col>
@@ -42,7 +68,7 @@ const CrowdDetection = () => {
           <p className="Helvetica Neue f-13 fw-700 mb-1 ps-2 border-with-curved-ends">
             Today Time line Graph analytics
           </p>
-          <div className="Helvetica Neue d-flex align-items-center gap-2 c-lightGrey f-13 fw-700 mb-1">
+          {/* <div className="Helvetica Neue d-flex align-items-center gap-2 c-lightGrey f-13 fw-700 mb-1">
             Date :{" "}
             <SingleDatePicker
               withoutBorder={true}
@@ -50,9 +76,9 @@ const CrowdDetection = () => {
               setDate={setDate}
             />{" "}
           </div>
-          <p></p>
+          <p></p> */}
         </div>
-        <MultiLineChart />
+        <MultiLineChart labels={Slots} list={sortedData} />
       </div>
     </section>
   );

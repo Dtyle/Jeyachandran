@@ -29,7 +29,7 @@ const Gauge = ({ count }) => {
           <p className="text-center c-lightGrey mb-0 f-12">Total count</p>
         </div>
       </div>
-      <div>
+      {/* <div>
         <ul className="mb-0 px-2 mt-4">
           <li className="d-flex justify-content-between">
             <p className="c-darkGrey f-13 mb-2">
@@ -38,8 +38,8 @@ const Gauge = ({ count }) => {
               &nbsp; Suspected Count
             </p>
             <p className="f-14 fw-700 mb-2">1</p>
-          </li>
-          {/* <li className="d-flex justify-content-between">
+          </li> */}
+      {/* <li className="d-flex justify-content-between">
             <p className="c-darkGrey f-13 mb-2">
               {" "}
               <BsFillSquareFill className="f-10 square-icon c-green" />
@@ -55,8 +55,8 @@ const Gauge = ({ count }) => {
             </p>
             <p className="f-14 fw-700 mb-0">4,350</p>
           </li> */}
-        </ul>
-      </div>
+      {/* </ul>
+      </div> */}
     </React.Fragment>
   );
 };

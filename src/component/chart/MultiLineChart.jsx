@@ -54,9 +54,9 @@ const options = {
   },
 };
 
-const MultiLineChart = () => {
+const MultiLineChart = ({ labels, list }) => {
   const data = {
-    labels: [
+    labels: labels || [
       "12:00pm",
       "1:00pm",
       "2:00pm",
@@ -68,44 +68,26 @@ const MultiLineChart = () => {
       "9:00pm",
       "10:00pm",
     ],
-    datasets: [
-      {
-        label: "Gold",
-        data: [2, 4, 5, 10, 15, 3, 1, 2, 13, 21],
-        borderColor: "#5C4FC3",
+    datasets:
+      list?.map((NavItem, index) => ({
+        label: [
+          "Ground Floor",
+          "First Floor",
+          "Second Floor",
+          "Third Floor",
+          "Fourth Floor",
+        ][index],
+        data: NavItem?.totalPeople || [],
+        borderColor: ["#5C4FC3", "#FF4444", "#52CC7B", "#FFCD35", "#D8C4B6"][
+          index
+        ],
         borderWidth: 2,
         fill: false,
         tension: 0.4, // Adds a curve to the line
-      },
-      {
-        label: "Platinum",
-        data: [4, 20, 8, 12, 0, 0, 6, 0, 2, 0],
-        borderColor: "#FF4444",
-        borderWidth: 2,
-        fill: false,
-        tension: 0.4, // Adds a curve to the line
-      },
-      {
-        label: "Diamond",
-        data: [1, 4, 0, 0, 20, 30, 0, 25, 0, 0],
-        borderColor: "#52CC7B",
-        borderWidth: 2,
-        fill: false,
-        tension: 0.4, // Adds a curve to the line
-      },
-      {
-        label: "Silver",
-        data: [12, 22, 50, 29, 6, 37, 60, 28, 50, 49],
-        borderColor: "#FFCD35",
-        borderWidth: 2,
-        fill: false,
-        tension: 0.4, // Adds a curve to the line
-      },
-    ],
+      })) || [],
   };
 
   return <Line height={85} data={data} options={options} />;
 };
 
 export default MultiLineChart;
-

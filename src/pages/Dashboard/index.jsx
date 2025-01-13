@@ -17,7 +17,6 @@ import {
   getFace_recognition,
   getGenderEmotionCounts,
   getLicenceRecognition,
-  getTraffic_analysis,
 } from "../../services/apiUrls";
 import moment from "moment";
 const Dashboard = () => {
@@ -35,15 +34,11 @@ const Dashboard = () => {
     key: "getLicenceRecognition",
     url: getLicenceRecognition,
   });
-  const { data: Traffic } = useFetchData({
-    key: "getTraffic_analysis",
-    url: getTraffic_analysis,
-  });
   return (
     <React.Fragment>
       <div className="expire fixed-top d-flex justify-content-center align-items-center">
         <p className="mb-0 c-white f-14 fw-700 Helvetica Neue">
-          Your license will expires in 7 days!
+          Welcome to Jeyachandran!
         </p>
       </div>
       <Container fluid className="pb-5">

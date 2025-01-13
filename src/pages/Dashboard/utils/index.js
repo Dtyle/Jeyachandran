@@ -16,21 +16,21 @@ export const AnalticsList = [
     title: "Queue Management",
     image: face,
     count: "5",
-    desc: "Display the current queue length",
+    desc: "Limits in per queue",
     color: "#FFE9EA",
   },
   {
     title: "Busiest Floor",
     image: crowd_control,
     count: "busiestFloor",
-    desc: "Abnormal behaviors detected by security systems",
+    desc: "Busiest floor in place",
     color: "#EDEBFF",
   },
   {
     title: "Abnormal Behavior",
     image: trespassers,
     count: "0",
-    desc: "Accessed the  restricted zone",
+    desc: "Abnormalities in zone",
     color: "#FFF9E6",
   },
 ];
@@ -83,7 +83,7 @@ export const VehicleHead = [
   "License Number",
   "In Time",
   "Out time",
-  "Duration",
+  // "Duration",
 ];
 
 export const StatebasedList = [
@@ -153,15 +153,9 @@ export const CrowdBasedList = [
   },
   {
     label: "Fourth Floor",
-    color: "#FFCD35",
-    bgColor: "#FFF9E6",
+    color: "#D8C4B6",
+    bgColor: "#F5EFE7",
     percentage: "75%",
-  },
-  {
-    label: "Fifth Floor",
-    color: "#FFCD35",
-    bgColor: "#FFF9E6",
-    percentage: "5%",
   },
 ];
 export const AgeList = [
