@@ -26,14 +26,14 @@ const AgePercentage = ({ data }) => {
       </div>
       {data?.data?.ageGroupCounts?.map((item, index) => (
         <div key={index} className="py-2 mb-1">
-          <label className="f-12 Helvetica Neue">{item.age_group}</label>
+          <label className="f-12 Helvetica Neue">{item?.age_group}</label>
           <div className="d-flex gap-3 align-items-center">
             <LinearProgressBar
-              count={item.percentage}
-              color={AgeList[index].color}
+              count={item?.percentage}
+              color={AgeList[index]?.color}
             />
             <p className="mb-0 Helvetica Neue f-13 fw-700">
-              {item.percentage}%
+              {item?.percentage}%
             </p>
           </div>
         </div>
