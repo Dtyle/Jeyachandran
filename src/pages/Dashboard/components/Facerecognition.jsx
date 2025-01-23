@@ -8,7 +8,7 @@ const Facerecognition = ({ data }) => {
       <div className="d-flex align-items-center gap-3">
         <img src={Face} alt="i" />
         <div>
-          <p className="fw-700 Helvetica Neue mb-0">Face Recognition</p>
+          <p className="fw-700 Helvetica Neue mb-0">Suspect Face Recognition</p>
           <p className="f-13 mb-0 c-lightGrey">
             Detected count and persons list
           </p>

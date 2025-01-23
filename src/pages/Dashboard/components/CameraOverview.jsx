@@ -35,10 +35,10 @@ const CameraOverview = () => {
                   <img src={Accept} alt="i" width={18} />
                   &nbsp; On duty - Working
                 </p>
-                <h3 className="f-24">{data?.data?.on_duty_cameras}</h3>
-                <small className="c-lightGrey text-left f-13">
+                <h3 className="fw-700 f-24">{data?.data?.on_duty_cameras}</h3>
+                {/* <small className="c-lightGrey text-left f-13">
                   Same as yesterday{" "}
-                </small>
+                </small> */}
               </div>
             </Col>
             <Col xs={6} sm={6} md={12} className="p-3">
@@ -47,10 +47,10 @@ const CameraOverview = () => {
                   <img src={Cancel} alt="i" width={18} />
                   &nbsp;Off duty - Not working
                 </p>
-                <h3 className="f-24">{data?.data?.off_duty_cameras}</h3>
-                <small className="c-lightGrey text-left f-13">
+                <h3 className="fw-700 f-24">{data?.data?.off_duty_cameras}</h3>
+                {/* <small className="c-lightGrey text-left f-13">
                   Same as yesterday{" "}
-                </small>
+                </small> */}
               </div>
             </Col>
           </Row>
