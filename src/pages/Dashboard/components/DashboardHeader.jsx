@@ -1,8 +1,8 @@
 import React from "react";
 import FileIcon from "../../../component/Icon/FileIcon";
-import DownloadIcon from "../../../component/Icon/DownloadIcon";
 import ButtonWhite from "../../../component/Button/ButtonWhite";
 import { Col, Row } from "react-bootstrap";
+import CapturePDF from "../utils/CapturePdf";
 
 const DashboardHeader = () => {
   return (
@@ -18,9 +18,7 @@ const DashboardHeader = () => {
           <ButtonWhite>
             <FileIcon />
           </ButtonWhite>
-          <ButtonWhite>
-            <DownloadIcon /> &nbsp;Download Report
-          </ButtonWhite>
+          <CapturePDF />
         </div>
       </Col>
     </Row>

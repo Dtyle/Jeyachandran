@@ -11,7 +11,7 @@ const FloatingMenu = () => {
   };
 
   return (
-    <div className="floating-menu">
+    <div className="floating-menu" id="anpr-section">
       <div className={`menu-icon d-flex gap-2`} onClick={toggleMenu}>
         <NavLink to="/dashboard" className="menu-item f-14">
           <LuLayoutDashboard className="f-18" />
