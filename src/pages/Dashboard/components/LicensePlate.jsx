@@ -33,7 +33,7 @@ const LicensePlate = ({ data }) => {
   return (
     <div className="custom-cards px-2 mb-3">
       <Row className="camera-overview">
-        <Col xs={12} md={5} className="p-3 box1">
+        <Col xs={12} md={5} className="p-3 box1 pdf-col">
           <div className="d-flex align-items-center gap-3 mb-3">
             <img src={licence} alt="i" />
             <div>
@@ -55,7 +55,7 @@ const LicensePlate = ({ data }) => {
             {data?.totalNumberOfVehicles}
           </h3>
         </Col>
-        <Col xs={12} md={7}>
+        <Col xs={12} md={7} id="anpr-section">
           <div className="py-3">
             <div className="d-flex justify-content-between align-items-center mb-4">
               <p className="f-14 fw-600 mb-0">

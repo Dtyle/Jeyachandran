@@ -17,21 +17,18 @@ const CapturePDF = () => {
       const anprElement = document.getElementById("anpr-section");
       const body = document.body;
 
-      // Hide ANPR before capturing
+      // Hide ANPR section and set PDF mode
       if (anprElement) anprElement.style.display = "none";
-
-      // Apply temporary scaling for mobile to match desktop layout
-      body.classList.add("pdf-capture-mode");
+      body.classList.add("pdf-mode"); // Add class to adjust styling
 
       // Capture the full page
       const element = document.documentElement;
       const canvas = await html2canvas(element, {
         scale: 2,
-        windowWidth: document.documentElement.scrollWidth, // Force full width capture
+        windowWidth: document.documentElement.scrollWidth, // Full width capture
       });
 
       const imgData = canvas.toDataURL("image/png");
-
       const pdf = new jsPDF("p", "mm", "a4");
       const imgWidth = 210;
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
@@ -45,9 +42,9 @@ const CapturePDF = () => {
 
       pdf.save("report.pdf");
 
-      // Remove temporary changes
+      // Restore the original state
       if (anprElement) anprElement.style.display = "block";
-      body.classList.remove("pdf-capture-mode");
+      body.classList.remove("pdf-mode"); // Remove class
 
       toast.success("PDF downloaded successfully!");
     } catch (error) {

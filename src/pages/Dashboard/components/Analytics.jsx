@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { AnalticsList } from "../utils";
-import SingleDatePicker from "../../../component/Forms/SingleDatePicker";
 import { useFetchData } from "../../../hooks/useServiceApi";
 import { getAnalytics } from "../../../services/apiUrls";
 import moment from "moment";
 
-const Analytics = () => {
-  const [date, setDate] = useState(new Date());
+const Analytics = ({ date }) => {
   const { data } = useFetchData({
     key: `getAnalytics?date=${moment(date).format("YYYY-MM-DD")}`,
     url: `${getAnalytics}?date=${moment(date).format("YYYY-MM-DD")}`,
@@ -16,9 +14,6 @@ const Analytics = () => {
     <section className="custom-cards p-3">
       <div className="d-flex justify-content-between align-items-center mb-2">
         <p className="fw-700 Helvetica Neue mb-0">Analytics</p>
-        <div>
-          <SingleDatePicker date={date} setDate={setDate} />
-        </div>
       </div>
       <Row className="px-2">
         {AnalticsList.map((item, index) => {

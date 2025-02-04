@@ -472,6 +472,10 @@ svg {
   width: 100%;
   border-radius: 8px;
 }
+.pdf-mode .pdf-col {
+  flex: 0 0 100% !important; /* Full width */
+  max-width: 100% !important;
+}
 @media (min-width: 468px) and (max-width: 768px) {
   .chart-gauge .content {
     position: absolute;

@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import crowd from "../../../../public/image/dashboard/crowd-detection/crowd.svg";
 import { Col, Row } from "react-bootstrap";
 import { CrowdBasedList } from "../utils";
 import { BsFillSquareFill } from "react-icons/bs";
 import MultiLineChart from "../../../component/chart/MultiLineChart";
-import SingleDatePicker from "../../../component/Forms/SingleDatePicker";
 import { useFetchData } from "../../../hooks/useServiceApi";
 import { getTraffic_analysis } from "../../../services/apiUrls";
 import moment from "moment";
 
 const CrowdDetection = () => {
-  const [date, setDate] = useState(null);
   const { data: Traffic } = useFetchData({
     key: "getTraffic_analysis",
     url: getTraffic_analysis,

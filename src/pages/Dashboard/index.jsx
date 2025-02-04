@@ -46,13 +46,13 @@ const Dashboard = () => {
         </p>
       </div>
       <Container fluid className="pb-5">
-        <DashboardHeader />
+        <DashboardHeader date={date} setDate={setDate} />
         <Row>
           <Col md={5} lg={4} className="mb-3 px-2">
             <CameraOverview />
           </Col>
           <Col md={7} lg={8} className="mb-3 px-2">
-            <Analytics />
+            <Analytics date={date} />
           </Col>
           <Col md={12} lg={5} className="mb-3 px-2">
             <LiveAlerts data={FaceRecognition} date={date} setDate={setDate} />
@@ -62,7 +62,6 @@ const Dashboard = () => {
             <PersonList data={FaceRecognition} />
           </Col>
           <Col md={6} lg={4} className="px-2">
-            {/* Added ID to hide ANPR when capturing the screen */}
             <ANPR data={LicenceData?.data} />
           </Col>
           <Col md={12} lg={8} className="px-2">
