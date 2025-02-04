@@ -83,7 +83,7 @@ export const VehicleHead = [
   "License Number",
   "In Time",
   "Out time",
-  // "Duration",
+  "Duration",
 ];
 
 export const StatebasedList = [
