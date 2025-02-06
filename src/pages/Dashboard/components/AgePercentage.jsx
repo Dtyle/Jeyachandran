@@ -6,14 +6,6 @@ import { AgeList, StatebasedList, TalukbasedList } from "../utils";
 import LinearProgressBar from "../../../component/Progress/LinearProgressBar";
 
 const AgePercentage = ({ data }) => {
-  // const total = data?.data?.ageGroupCounts?.reduce(
-  //   (sum, item) => sum + item.count,
-  //   0
-  // );
-  // const result = data?.data?.ageGroupCounts?.map((item) => ({
-  //   age_group: item.age_group,
-  //   percentage: ((item.count / total) * 100).toFixed(2),
-  // }));
 
   return (
     <section className="custom-cards p-3 mb-3">

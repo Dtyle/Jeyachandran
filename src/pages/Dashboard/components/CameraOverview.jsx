@@ -5,11 +5,12 @@ import Accept from "../../../../public/image/dashboard/camera-view/accept.svg";
 import Cancel from "../../../../public/image/dashboard/camera-view/cancel.svg";
 import { useFetchData } from "../../../hooks/useServiceApi";
 import { getCamera_overview } from "../../../services/apiUrls";
+import moment from "moment";
 
-const CameraOverview = () => {
+const CameraOverview = ({ date }) => {
   const { data } = useFetchData({
-    key: "getCamera_overview",
-    url: getCamera_overview,
+    key: `getCamera_overview?date=${moment(date).format("YYYY-MM-DD")}`,
+    url: `${getCamera_overview}?date=${moment(date).format("YYYY-MM-DD")}`,
   });
   return (
     <div className="custom-cards px-2">

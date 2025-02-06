@@ -8,10 +8,10 @@ import { useFetchData } from "../../../hooks/useServiceApi";
 import { getTraffic_analysis } from "../../../services/apiUrls";
 import moment from "moment";
 
-const CrowdDetection = () => {
+const CrowdDetection = ({ date }) => {
   const { data: Traffic } = useFetchData({
-    key: "getTraffic_analysis",
-    url: getTraffic_analysis,
+    key: `getTraffic_analysis?date=${moment(date).format("YYYY-MM-DD")}`,
+    url: `${getTraffic_analysis}?date=${moment(date).format("YYYY-MM-DD")}`,
   });
   const Slots = Traffic?.data?.timeline?.map((item) =>
     moment(item, "hh:mm:ss A").format("hh:mm A")

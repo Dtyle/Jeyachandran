@@ -24,8 +24,8 @@ const Dashboard = () => {
   const [date, setDate] = useState(new Date());
 
   const { data: GenderData } = useFetchData({
-    key: "getGenderEmotionCounts",
-    url: getGenderEmotionCounts,
+    key: `getGenderEmotionCounts?date=${moment(date).format("YYYY-MM-DD")}`,
+    url: `${getGenderEmotionCounts}?date=${moment(date).format("YYYY-MM-DD")}`,
   });
 
   const { data: FaceRecognition } = useFetchData({
@@ -34,8 +34,8 @@ const Dashboard = () => {
   });
 
   const { data: LicenceData } = useFetchData({
-    key: "getLicenceRecognition",
-    url: getLicenceRecognition,
+    key: `getLicenceRecognition?date=${moment(date).format("YYYY-MM-DD")}`,
+    url: `${getLicenceRecognition}?date=${moment(date).format("YYYY-MM-DD")}`,
   });
 
   return (
@@ -49,7 +49,7 @@ const Dashboard = () => {
         <DashboardHeader date={date} setDate={setDate} />
         <Row>
           <Col md={5} lg={4} className="mb-3 px-2">
-            <CameraOverview />
+            <CameraOverview date={date} />
           </Col>
           <Col md={7} lg={8} className="mb-3 px-2">
             <Analytics date={date} />
@@ -71,7 +71,7 @@ const Dashboard = () => {
             <GenderAndEmotion data={GenderData} />
           </Col>
           <Col md={12} lg={8} className="px-2">
-            <CrowdDetection />
+            <CrowdDetection date={date} />
           </Col>
           <Col md={12} lg={4} className="px-2">
             <AgePercentage data={GenderData} />
