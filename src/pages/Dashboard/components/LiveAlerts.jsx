@@ -46,16 +46,16 @@ const LiveAlerts = ({ date, setDate, data }) => {
             <p className="f-13 mb-0 c-lightGrey">All alerts are listed here </p>
           </div>
         </div>
-        <div className="Helvetica Neue d-flex align-items-center gap-2 c-lightGrey f-13 fw-700 mb-1">
+        {/* <div className="Helvetica Neue d-flex align-items-center gap-2 c-lightGrey f-13 fw-700 mb-1">
           Date :{" "}
           <SingleDatePicker
             withoutBorder={true}
             date={date}
             setDate={setDate}
           />{" "}
-        </div>
+        </div> */}
       </div>
-      <CustomDateUi date={date} setDate={setDate} />
+      {/* <CustomDateUi date={date} setDate={setDate} /> */}
       <div className="d-flex align-items-center justify-content-between mt-3">
         <hr className="flex-grow-1" />
         <span className="mx-2 f-24 fw-700 Helvetica Neue c-blue">

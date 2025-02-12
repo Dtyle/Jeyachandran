@@ -13,10 +13,10 @@ export const AnalticsList = [
     color: "#E8FDEC",
   },
   {
-    title: "Queue Management",
+    title: "Peak Hour",
     image: face,
-    count: "5",
-    desc: "Limits in per queue",
+    count: "12:30 PM",
+    desc: "Busiest Time Today",
     color: "#FFE9EA",
   },
   {
@@ -27,10 +27,10 @@ export const AnalticsList = [
     color: "#EDEBFF",
   },
   {
-    title: "Abnormal Behavior",
+    title: "Hourly Footfall",
     image: trespassers,
     count: "0",
-    desc: "Abnormalities in zone",
+    desc: "Average Visitors per hour",
     color: "#FFF9E6",
   },
 ];
@@ -73,11 +73,11 @@ export const AlertList = [
       // },
     ],
   },
-  // {
-  //   question: "Theft Alerts",
-  //   count: "0",
-  //   answer: [],
-  // },
+  {
+    question: "Queue Alerts",
+    count: "0",
+    answer: [],
+  },
 ];
 export const VehicleHead = [
   "License Number",

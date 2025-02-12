@@ -30,7 +30,6 @@ const LicensePlate = ({ data }) => {
     setSearchQuery(query);
     setCurrentPage(1); // Reset to the first page on search
   };
-
   return (
     <div className="custom-cards px-2 mb-3">
       <Row className="camera-overview">
@@ -39,21 +38,23 @@ const LicensePlate = ({ data }) => {
             <img src={licence} alt="i" />
             <div>
               <p className="fw-700 Helvetica Neue mb-0">
-                License Plate Recognition
+                Total Number of vehicles
               </p>
-              <p className="f-13 mb-0 c-lightGrey">Recognized vehicles</p>
+              <p className="f-13 mb-0 c-lightGrey">
+                Here you can see the total count of vehicles
+              </p>
             </div>
           </div>
-          <p className="mb-0 f-12 fw-700 ms-2 mt-3">Total Number of vehicles</p>
+          {/* <p className="mb-0 f-12 fw-700 ms-2 mt-3">Total Number of vehicles</p>
           <small className="f-12 c-lightGrey ms-2">
             Here you can see the total count of vehicles
-          </small>
-          <div className="d-flex justify-content-around">
+          </small> */}
+          <div className="d-flex justify-content-around my-5">
             <div>
               <div className="d-flex justify-content-center py-3 mt-4">
-                <img src={vehicle}  alt="vehicle" />
+                <img src={vehicle} alt="vehicle" />
               </div>
-              <p className="text-center f-14">Total vehicles</p>
+              <p className="text-center f-14">Total Cars</p>
               <h3 className="text-center fw-700 f-32 mb-0">
                 {data?.totalNumberOfVehicles}
               </h3>
@@ -62,9 +63,9 @@ const LicensePlate = ({ data }) => {
               <div className="d-flex justify-content-center py-2 mt-4">
                 <img src={bike} width={80} height={55} alt="vehicle" />
               </div>
-              <p className="text-center f-14">Total Bike</p>
+              <p className="text-center f-14">Total Bikes</p>
               <h3 className="text-center fw-700 f-32 mb-0">
-                {data?.totalNumberOfVehicles}
+                {data?.totalBikeCount}
               </h3>
             </div>
           </div>

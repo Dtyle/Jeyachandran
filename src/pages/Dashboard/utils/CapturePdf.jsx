@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ButtonWhite from "../../../component/Button/ButtonWhite";
 import DownloadIcon from "../../../component/Icon/DownloadIcon";
+import moment from "moment/moment";
 
 const CapturePDF = () => {
   const [loading, setLoading] = useState(false);
@@ -40,7 +41,11 @@ const CapturePDF = () => {
         if (yPosition < imgHeight) pdf.addPage();
       }
 
-      pdf.save("report.pdf");
+      pdf.save(
+        `Report_${moment(new Date())
+          .format("MMM_D_YYYY")
+          .toUpperCase()}_Jay_Tex_TBM.pdf`
+      );
 
       // Restore the original state
       if (anprElement) anprElement.style.display = "block";
@@ -56,7 +61,7 @@ const CapturePDF = () => {
   };
 
   return (
-    <>
+    <div id="anpr-section">
       <ButtonWhite handleClick={captureScreenAsPDF} disabled={loading}>
         {loading ? (
           <>
@@ -68,7 +73,7 @@ const CapturePDF = () => {
           </>
         )}
       </ButtonWhite>
-    </>
+    </div>
   );
 };
 

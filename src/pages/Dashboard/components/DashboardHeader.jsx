@@ -9,7 +9,7 @@ const DashboardHeader = ({ setDate, date }) => {
   return (
     <Row className="pt-5">
       <Col md={6} className="mb-3">
-        <p className="f-24 mb-0">Good morning, Admin !</p>
+        <p className="f-24 mb-0">Welcome back, Admin !</p>
         <small className="c-lightGrey">
           Here is the information of your dashboard
         </small>
