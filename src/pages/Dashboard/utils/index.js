@@ -15,7 +15,7 @@ export const AnalticsList = [
   {
     title: "Peak Hour",
     image: face,
-    count: "12:30 PM",
+    count: "peakHourBusiestTime",
     desc: "Busiest Time Today",
     color: "#FFE9EA",
   },
@@ -29,7 +29,7 @@ export const AnalticsList = [
   {
     title: "Hourly Footfall",
     image: trespassers,
-    count: "0",
+    count: "hourlyFootfallAverage",
     desc: "Average Visitors per hour",
     color: "#FFF9E6",
   },
