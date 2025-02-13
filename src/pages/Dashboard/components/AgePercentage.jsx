@@ -12,7 +12,7 @@ const AgePercentage = ({ data }) => {
       <div className="d-flex align-items-center gap-3 mb-3">
         <img src={age} alt="i" />
         <div>
-          <p className="fw-700 Helvetica Neue mb-0">Age %</p>
+          <p className="fw-700 Helvetica Neue mb-0">Age Range</p>
           <p className="f-13 mb-0 c-lightGrey">Percentage based on age</p>
         </div>
       </div>

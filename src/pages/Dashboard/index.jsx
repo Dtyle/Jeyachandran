@@ -42,7 +42,7 @@ const Dashboard = () => {
     <React.Fragment>
       <div className="expire fixed-top d-flex justify-content-center align-items-center">
         <p className="mb-0 c-white f-14 fw-700 Helvetica Neue">
-          Welcome to Jeyachandran!
+          Welcome to Jeyachandran Tex - Tambaram branch
         </p>
       </div>
       <Container fluid className="pb-5">
