@@ -20,7 +20,7 @@ const DashboardHeader = ({ setDate, date }) => {
           {/* <ButtonWhite>
             <FileIcon />
           </ButtonWhite> */}
-          <CapturePDF />
+          <CapturePDF date={date} />
         </div>
       </Col>
     </Row>

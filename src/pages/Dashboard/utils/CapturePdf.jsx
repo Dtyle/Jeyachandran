@@ -7,7 +7,7 @@ import ButtonWhite from "../../../component/Button/ButtonWhite";
 import DownloadIcon from "../../../component/Icon/DownloadIcon";
 import moment from "moment/moment";
 
-const CapturePDF = () => {
+const CapturePDF = ({ date }) => {
   const [loading, setLoading] = useState(false);
 
   const captureScreenAsPDF = async () => {
@@ -16,10 +16,12 @@ const CapturePDF = () => {
       toast.info("Generating PDF, please wait...");
 
       const anprElement = document.getElementById("anpr-section");
+      const captureBtnElement = document.getElementById("capture-btn");
       const body = document.body;
 
       // Hide ANPR section and set PDF mode
       if (anprElement) anprElement.style.display = "none";
+      if (captureBtnElement) captureBtnElement.style.display = "none";
       body.classList.add("pdf-mode"); // Add class to adjust styling
 
       // Capture the full page
@@ -42,13 +44,14 @@ const CapturePDF = () => {
       }
 
       pdf.save(
-        `Report_${moment(new Date())
+        `Report_${moment(date)
           .format("MMM_D_YYYY")
           .toUpperCase()}_Jay_Tex_TBM.pdf`
       );
 
       // Restore the original state
       if (anprElement) anprElement.style.display = "block";
+      if (captureBtnElement) captureBtnElement.style.display = "block";
       body.classList.remove("pdf-mode"); // Remove class
 
       toast.success("PDF downloaded successfully!");
@@ -61,17 +64,9 @@ const CapturePDF = () => {
   };
 
   return (
-    <div id="anpr-section">
+    <div id="capture-btn">
       <ButtonWhite handleClick={captureScreenAsPDF} disabled={loading}>
-        {loading ? (
-          <>
-            <DownloadIcon /> &nbsp;Generating...
-          </>
-        ) : (
-          <>
-            <DownloadIcon /> &nbsp;Download Report
-          </>
-        )}
+        <DownloadIcon /> &nbsp; {loading ? "Generating..." : "Download Report"}
       </ButtonWhite>
     </div>
   );

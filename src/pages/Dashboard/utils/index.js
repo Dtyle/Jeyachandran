@@ -36,48 +36,48 @@ export const AnalticsList = [
 ];
 
 export const AlertList = [
-  {
-    question: "Abnormal Behavior",
-    count: "0",
-    answer: [
-      // {
-      //   camera: "CAM0003",
-      //   date_time: "14th August 2024 at 02:54:31 PM",
-      //   image: `/public/image/dashboard/live-alert/tresspasers/trespass_1.png`,
-      // },
-      // {
-      //   camera: "CAM0003",
-      //   date_time: "14th August 2024 at 02:54:36 PM",
-      //   image: `/public/image/dashboard/live-alert/tresspasers/trespass_2.png`,
-      // },
-      // {
-      //   camera: "CAM0003",
-      //   date_time: "14th August 2024 at 02:54:47 PM",
-      //   image: `/public/image/dashboard/live-alert/tresspasers/trespass_3.png`,
-      // },
-    ],
-  },
-  {
-    question: "Suspect Identified",
-    count: "0",
-    answer: [
-      // {
-      //   camera: "CAM0003",
-      //   date_time: "14th August 2024 at 02:54:31 PM",
-      //   image: `/public/image/dashboard/live-alert/tresspasers/trespass_1.png`,
-      // },
-      // {
-      //   camera: "CAM0003",
-      //   date_time: "14th August 2024 at 02:54:47 PM",
-      //   image: `/public/image/dashboard/live-alert/tresspasers/trespass_3.png`,
-      // },
-    ],
-  },
-  {
-    question: "Queue Alerts",
-    count: "0",
-    answer: [],
-  },
+  // {
+  //   question: "Abnormal Behavior",
+  //   count: "0",
+  //   answer: [
+  //     // {
+  //     //   camera: "CAM0003",
+  //     //   date_time: "14th August 2024 at 02:54:31 PM",
+  //     //   image: `/public/image/dashboard/live-alert/tresspasers/trespass_1.png`,
+  //     // },
+  //     // {
+  //     //   camera: "CAM0003",
+  //     //   date_time: "14th August 2024 at 02:54:36 PM",
+  //     //   image: `/public/image/dashboard/live-alert/tresspasers/trespass_2.png`,
+  //     // },
+  //     // {
+  //     //   camera: "CAM0003",
+  //     //   date_time: "14th August 2024 at 02:54:47 PM",
+  //     //   image: `/public/image/dashboard/live-alert/tresspasers/trespass_3.png`,
+  //     // },
+  //   ],
+  // },
+  // {
+  //   question: "Suspect Identified",
+  //   count: "0",
+  //   answer: [
+  //     // {
+  //     //   camera: "CAM0003",
+  //     //   date_time: "14th August 2024 at 02:54:31 PM",
+  //     //   image: `/public/image/dashboard/live-alert/tresspasers/trespass_1.png`,
+  //     // },
+  //     // {
+  //     //   camera: "CAM0003",
+  //     //   date_time: "14th August 2024 at 02:54:47 PM",
+  //     //   image: `/public/image/dashboard/live-alert/tresspasers/trespass_3.png`,
+  //     // },
+  //   ],
+  // },
+  // {
+  //   question: "Queue Alerts",
+  //   count: "0",
+  //   answer: [],
+  // },
 ];
 export const VehicleHead = [
   "License Number",

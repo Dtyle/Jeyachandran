@@ -54,26 +54,28 @@ const Dashboard = () => {
           <Col md={7} lg={8} className="mb-3 px-2">
             <Analytics date={date} />
           </Col>
-          <Col md={12} lg={5} className="mb-3 px-2">
-            <LiveAlerts data={FaceRecognition} date={date} setDate={setDate} />
-          </Col>
-          <Col md={6} lg={3} className="px-2">
-            <Facerecognition data={FaceRecognition} />
-            <PersonList data={FaceRecognition} />
+          <Col md={12} lg={8} className="mb-3 px-2">
+            <Row>
+              <Col md={12} lg={7}>
+                <LiveAlerts
+                  data={FaceRecognition}
+                  date={date}
+                  setDate={setDate}
+                />
+              </Col>
+              <Col md={6} lg={5} className="px-2">
+                <Facerecognition data={FaceRecognition} />
+                <PersonList data={FaceRecognition} />
+              </Col>
+              <Col md={12} lg={12}>
+                <LicensePlate data={LicenceData?.data} />
+                <CrowdDetection date={date} />
+              </Col>
+            </Row>
           </Col>
           <Col md={6} lg={4} className="px-2">
             <ANPR data={LicenceData?.data} />
-          </Col>
-          <Col md={12} lg={8} className="px-2">
-            <LicensePlate data={LicenceData?.data} />
-          </Col>
-          <Col md={12} lg={4} className="px-2">
             <GenderAndEmotion data={GenderData} />
-          </Col>
-          <Col md={12} lg={8} className="px-2">
-            <CrowdDetection date={date} />
-          </Col>
-          <Col md={12} lg={4} className="px-2">
             <AgePercentage data={GenderData} />
           </Col>
         </Row>

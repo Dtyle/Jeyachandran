@@ -31,7 +31,7 @@ const LicensePlate = ({ data }) => {
     setCurrentPage(1); // Reset to the first page on search
   };
   return (
-    <div className="custom-cards px-2 mb-3">
+    <div className="custom-cards px-2 mt-3 mb-3">
       <Row className="camera-overview">
         <Col xs={12} md={5} className="p-3 box1 pdf-col">
           <div className="d-flex align-items-center gap-3 mb-3">

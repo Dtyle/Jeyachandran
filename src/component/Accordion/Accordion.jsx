@@ -30,7 +30,7 @@ const Accordion = ({ list, setOpen, setDetails }) => {
             <div className="d-flex align-items-center gap-2">
               <div className="rounded-32 radius-39 d-flex justify-content-center align-items-center bg-white">
                 <small className="c-red Helvetica Neue fw-700">
-                  {item.answer.length}
+                  {item.answer.length || item.count}
                 </small>
               </div>
               <div className="arrow ">

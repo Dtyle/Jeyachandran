@@ -35,7 +35,7 @@ const PersonList = ({ data }) => {
           <SearchBox onSearch={handleSearch} />
         </div>
       </div>
-      <ul className="mb-0 p-0 mt-2">
+      <ul className="mb-0 p-0 mt-2" style={{ listStyle: "none" }}>
         {currentPersons?.map((item, index) => (
           <li
             key={index}
@@ -61,11 +61,13 @@ const PersonList = ({ data }) => {
           </li>
         )}
       </ul>
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-      />
+      {currentPersons?.length !== 0 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      )}
     </section>
   );
 };

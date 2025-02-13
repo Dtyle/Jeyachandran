@@ -7,23 +7,69 @@ import ModalBox from "../../../component/Modal/ModalBox";
 import CCTVIcon from "../../../component/Icon/CCTVIcon";
 import SingleDatePicker from "../../../component/Forms/SingleDatePicker";
 import CustomDateUi from "../../../component/UI/CustomDateUi";
+import { useFetchData } from "../../../hooks/useServiceApi";
+import { getlive_alert } from "../../../services/apiUrls";
+import moment from "moment";
 
-const LiveAlerts = ({ date, setDate, data }) => {
+const LiveAlerts = ({ date, setDate }) => {
   const [open, setOpen] = useState(false);
   const [details, setDetails] = useState({});
+
+  const { data } = useFetchData({
+    key: `getlive_alert?date=${moment(date).format("YYYY-MM-DD")}`,
+    url: `${getlive_alert}?date=${moment(date).format("YYYY-MM-DD")}`,
+  });
+
   const formattedData = [
     {
       question: "Crowd Alerts",
-      count: "5", // Consider dynamically calculating the count if possible
+      count: "0", // Consider dynamically calculating the count if possible
       answer:
-        data?.data?.crowsAlert?.map((item) => ({
+        data?.data?.crowdAlerts?.map((item) => ({
           camera: item?.cam_name || "Unknown Camera",
           date_time: item?.timealerts || "Unknown Date/Time",
-          image: "/image/dashboard/live-alert/tresspasers/trespass_1.png", // Corrected path
+          image:
+            item?.image ||
+            "/image/dashboard/live-alert/tresspasers/trespass_1.png", // Corrected path
+        })) || [], // Provide a fallback in case crowsAlert is undefined
+    },
+    {
+      question: "Abnormal Behavior",
+      count: "0", // Consider dynamically calculating the count if possible
+      answer:
+        data?.data?.abnormalBehaviors?.map((item) => ({
+          camera: item?.cam_name || "Unknown Camera",
+          date_time: item?.timealerts || "Unknown Date/Time",
+          image:
+            item?.image ||
+            "/image/dashboard/live-alert/tresspasers/trespass_1.png", // Corrected path
+        })) || [], // Provide a fallback in case crowsAlert is undefined
+    },
+    {
+      question: "Suspect Identified",
+      count: "0", // Consider dynamically calculating the count if possible
+      answer:
+        data?.data?.suspectAlerts?.map((item) => ({
+          camera: item?.cam_name || "Unknown Camera",
+          date_time: item?.timealerts || "Unknown Date/Time",
+          image:
+            item?.image ||
+            "/image/dashboard/live-alert/tresspasers/trespass_1.png", // Corrected path
+        })) || [], // Provide a fallback in case crowsAlert is undefined
+    },
+    {
+      question: "Queue Alerts",
+      count: data?.data?.queueAlertCount, // Consider dynamically calculating the count if possible
+      answer:
+        data?.data?.suspectAlerts?.map((item) => ({
+          camera: item?.cam_name || "Unknown Camera",
+          date_time: item?.timealerts || "Unknown Date/Time",
+          image:
+            item?.image ||
+            "/image/dashboard/live-alert/tresspasers/trespass_1.png", // Corrected path
         })) || [], // Provide a fallback in case crowsAlert is undefined
     },
   ];
-
   return (
     <section className="custom-cards alerts p-3">
       <ModalBox title={details.title} open={open} setOpen={setOpen}>
@@ -59,7 +105,7 @@ const LiveAlerts = ({ date, setDate, data }) => {
       <div className="d-flex align-items-center justify-content-between mt-3">
         <hr className="flex-grow-1" />
         <span className="mx-2 f-24 fw-700 Helvetica Neue c-blue">
-          {data?.data?.liverAlerts}
+          {data?.data?.liveAlertCount}
         </span>
         <hr className="flex-grow-1" />
       </div>
