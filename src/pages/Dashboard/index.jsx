@@ -19,6 +19,7 @@ import {
   getLicenceRecognition,
 } from "../../services/apiUrls";
 import moment from "moment";
+import AiBot from "../../layout/AiBot";
 
 const Dashboard = () => {
   const [date, setDate] = useState(new Date());
@@ -79,6 +80,7 @@ const Dashboard = () => {
             <AgePercentage data={GenderData} />
           </Col>
         </Row>
+        <AiBot />
       </Container>
     </React.Fragment>
   );
