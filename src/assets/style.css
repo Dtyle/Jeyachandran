@@ -631,7 +631,7 @@ svg {
   border-radius: 8px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   padding: 24px;
-  z-index: 9999
+  z-index: 9998
 }
 
 .dialog-header {
@@ -661,7 +661,7 @@ svg {
   border-radius: 8px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   padding: 18px;
-  z-index: 9999
+  z-index: 9998
 }
 
 /* Dialog close button styles */

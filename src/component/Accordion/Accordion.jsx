@@ -30,7 +30,7 @@ const Accordion = ({ list, setOpen, setDetails }) => {
             <div className="d-flex align-items-center gap-2">
               <div className="rounded-32 radius-39 d-flex justify-content-center align-items-center bg-white">
                 <small className="c-red Helvetica Neue fw-700">
-                  {item.answer.length || item.count}
+                  {item?.answer?.length || item.count}
                 </small>
               </div>
               <div className="arrow ">
@@ -54,7 +54,7 @@ const Accordion = ({ list, setOpen, setDetails }) => {
             }`}
           >
             {/* <p className="mt-2 mb-0">{item.answer}</p> */}
-            {item.answer.length > 0 ? (
+            {item?.answer?.length > 0 ? (
               <ul className="mb-0 p-0">
                 {item.answer.map((ans, i) => (
                   <li

@@ -23,9 +23,9 @@ const LiveAlerts = ({ date, setDate }) => {
   const formattedData = [
     {
       question: "Crowd Alerts",
-      count: "0", // Consider dynamically calculating the count if possible
+      count: data?.data?.crowdAlerts, // Consider dynamically calculating the count if possible
       answer:
-        data?.data?.crowdAlerts?.map((item) => ({
+        data?.data?.crowdAlertsList?.map((item) => ({
           camera: item?.cam_name || "Unknown Camera",
           date_time: item?.timealerts || "Unknown Date/Time",
           image:

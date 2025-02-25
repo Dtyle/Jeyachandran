@@ -12,9 +12,12 @@ import logo from "../../public/vite.svg";
 import { postVoiceGenerator } from "../services/apiUrls";
 import axios from "axios";
 import Controls from "./Components/Controls";
+import BackdropLoader from "../component/loader/BackdropLoader";
+import { toast } from "react-toastify";
 
 export default function AiBot() {
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [isRecording, setIsRecording] = useState(false);
   const [recordingTime, setRecordingTime] = useState(0);
@@ -134,25 +137,30 @@ export default function AiBot() {
     window.speechSynthesis.speak(utterance);
   };
   const sendChat = async () => {
+    setLoading(true);
     try {
       const response = await axios.post(
         postVoiceGenerator,
         { query: message },
         {
           headers: {
-            Authorization: "Bearer a9EWMMu9faVgrncjh4WaKpTJZqKfvTO",
+            Authorization: `Bearer ${import.meta.env.VITE_AI_BOT_TOKEN}`,
           },
         }
       );
+      setLoading(false);
       setValue(
         response?.data?.status ? response?.data?.status : "No data found!"
       );
     } catch (err) {
       console.log(err);
+      toast.error("Something went wrong!");
+      setLoading(false);
     }
   };
   return (
     <div className="ai-bot">
+      <BackdropLoader loader={loading} />
       <span className="agent-name">DAgent Chat!</span>
       <motion.button
         className="floating-btn"
