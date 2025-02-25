@@ -33,6 +33,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .c-blue {
   color: #5c4fc3;
 }
+.c-lightblue {
+  color: #58bcff;
+}
 .c-grey {
   color: #61788a;
 }
@@ -95,7 +98,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 20px;
 }
 .f-24 {
-  font-size: 20px;
+  font-size: 24px;
 }
 .f-32 {
   font-size: 32px;
@@ -351,7 +354,7 @@ svg {
   border: 0.6px solid #d4dde7 !important;
   border-radius: 10px !important;
   height: 40px;
-  padding: 0px 10px;
+  padding: 4px 10px;
   font-size: 13px !important;
   background-color: #ffffff !important;
 }
@@ -480,10 +483,10 @@ svg {
 .floating-btn {
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  right: 26px;
   background-color: #1e40af;
   color: white;
-  padding: 16px;
+  padding: 12px 14px;
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -491,6 +494,32 @@ svg {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+.agent-name {
+  position: fixed;
+  background-color: #2563eb;
+  bottom: 105px;
+  right: 24px;
+  border-radius: 14px;
+  color: white;
+  padding: 6px 12px;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Pointer at the bottom */
+.agent-name::after {
+  content: "";
+  position: absolute;
+  bottom: -6px; /* Moves the triangle below the tooltip */
+  left: 65%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #2563eb; /* Creates a downward-facing triangle */
 }
 
 .floating-btn:hover {
@@ -506,6 +535,70 @@ svg {
   width: 24px;
   height: 24px;
   animation: pulse 1.5s infinite;
+}
+.send-btn {
+  background-color: #4e7ec7;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+  padding: 6px 20px;
+}
+.back-btn {
+  background-color: #f0f0f0;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: black;
+  padding: 6px 20px;
+}
+.controls-container {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 8px;
+  background-color: #e5e7eb;
+  border-radius: 24px;
+  padding: 6px;
+}
+
+.playing-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.play-icon,
+.pause-icon,
+.resume-icon,
+.stop-icon {
+  cursor: pointer;
+  font-size: 40px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.play-icon {
+  color: green;
+}
+
+.pause-icon {
+  color: rgb(0, 208, 255);
+}
+
+.resume-icon {
+  color: blue;
+}
+
+.stop-icon {
+  color: red;
+}
+
+.play-icon:hover,
+.pause-icon:hover,
+.resume-icon:hover,
+.stop-icon:hover {
+  transform: scale(1.05);
 }
 
 @keyframes pulse {
@@ -524,6 +617,7 @@ svg {
 .popup-content {
   padding: 16px;
   color: #4b5563;
+  min-width: 340px;
 }
 
 /* Dialog Styles */
@@ -537,6 +631,7 @@ svg {
   border-radius: 8px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   padding: 24px;
+  z-index: 9999
 }
 
 .dialog-header {
@@ -565,7 +660,8 @@ svg {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  padding: 24px;
+  padding: 18px;
+  z-index: 9999
 }
 
 /* Dialog close button styles */
@@ -574,7 +670,9 @@ svg {
   top: 16px;
   right: 16px;
   color: #6b7280;
+  border: none;
   cursor: pointer;
+  border-radius: 50%;
 }
 
 .dialog-close-btn:hover {
@@ -597,7 +695,15 @@ svg {
   font-size: 20px;
   font-weight: 600;
 }
-
+.record-cta {
+  background-color: #f7f7f7;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+}
 @media (min-width: 468px) and (max-width: 768px) {
   .chart-gauge .content {
     position: absolute;
@@ -618,5 +724,8 @@ svg {
   .custom-date .indicator {
     width: 12px;
     height: 18px;
+  }
+  .dialog-content {
+    width: 90%;
   }
 }

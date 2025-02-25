@@ -13,11 +13,11 @@ export function useFetchData({ key, url, action, dispatch }) {
     },
   });
 }
-export function usePostData({ key, url }) {
+export function usePostData({ key, url, header }) {
   return useMutation({
     mutationKey: [key],
     mutationFn: async (data) => {
-      const response = await api.post(url, data);
+      const response = await api.post(url, data, header);
       return response.data;
     },
   });
