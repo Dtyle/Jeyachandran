@@ -267,10 +267,13 @@ svg {
   border-image-slice: 1; /* Ensures the gradient covers the entire border */
 }
 .accordion-answer {
-  overflow: hidden;
+  overflow: scroll;
   transition: max-height 0s ease-in-out;
   max-height: 0; /* Initially hidden */
   background-color: #ffffff;
+}
+.accordion-answer::-webkit-scrollbar {
+  display: block;
 }
 .accordion .arrow {
   border-left: 1px solid #d4dde7;
@@ -283,7 +286,7 @@ svg {
   border-bottom: none;
 }
 .accordion-answer.open {
-  max-height: 1000px; /* Sufficiently high to cover content. Adjust based on your content's need */
+  max-height: 200px; /* Sufficiently high to cover content. Adjust based on your content's need */
   border-radius: 8px;
   padding: 8px;
 }
@@ -631,7 +634,7 @@ svg {
   border-radius: 8px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   padding: 24px;
-  z-index: 9998
+  z-index: 9998;
 }
 
 .dialog-header {
@@ -661,7 +664,7 @@ svg {
   border-radius: 8px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   padding: 18px;
-  z-index: 9998
+  z-index: 9998;
 }
 
 /* Dialog close button styles */

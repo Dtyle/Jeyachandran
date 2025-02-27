@@ -24,9 +24,9 @@ const LiveAlerts = ({ date, setDate }) => {
     {
       question: "Crowd Alerts",
       // disable: true,
-      count: data?.data?.crowdAlerts, // Consider dynamically calculating the count if possible
+      count: "0", // Consider dynamically calculating the count if possible
       answer:
-        data?.data?.crowdAlertsList?.map((item) => ({
+        data?.data?.crowdAlerts?.map((item) => ({
           camera: item?.cam_name || "Unknown Camera",
           date_time: item?.timealerts || "Unknown Date/Time",
           image:
@@ -61,9 +61,9 @@ const LiveAlerts = ({ date, setDate }) => {
     {
       question: "Queue Alerts",
       // disable: true,
-      count: data?.data?.queueAlertCount, // Consider dynamically calculating the count if possible
+      count: "0", // Consider dynamically calculating the count if possible
       answer:
-        data?.data?.suspectAlerts?.map((item) => ({
+        data?.data?.queueAlertCount?.map((item) => ({
           camera: item?.cam_name || "Unknown Camera",
           date_time: item?.timealerts || "Unknown Date/Time",
           image:
