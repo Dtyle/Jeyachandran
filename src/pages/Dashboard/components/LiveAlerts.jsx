@@ -23,6 +23,7 @@ const LiveAlerts = ({ date, setDate }) => {
   const formattedData = [
     {
       question: "Crowd Alerts",
+      // disable: true,
       count: data?.data?.crowdAlerts, // Consider dynamically calculating the count if possible
       answer:
         data?.data?.crowdAlertsList?.map((item) => ({
@@ -59,6 +60,7 @@ const LiveAlerts = ({ date, setDate }) => {
     },
     {
       question: "Queue Alerts",
+      // disable: true,
       count: data?.data?.queueAlertCount, // Consider dynamically calculating the count if possible
       answer:
         data?.data?.suspectAlerts?.map((item) => ({

@@ -22,68 +22,72 @@ const Accordion = ({ list, setOpen, setDetails }) => {
         >
           <div
             className="d-flex justify-content-between align-items-center cursor"
-            onClick={() => toggleFaq(index)}
+            onClick={() => !item?.disable && toggleFaq(index)}
           >
             <p className="question Helvetica Neue fw-700 f-14 px-2 py-1 mb-0">
               {item.question}
             </p>{" "}
             <div className="d-flex align-items-center gap-2">
-              <div className="rounded-32 radius-39 d-flex justify-content-center align-items-center bg-white">
+              <div className="rounded-32 radius-39 d-flex mx-2 justify-content-center align-items-center bg-white">
                 <small className="c-red Helvetica Neue fw-700">
                   {item?.answer?.length || item.count}
                 </small>
               </div>
-              <div className="arrow ">
-                {openIndex !== index ? (
-                  <IoIosArrowDown
-                    className="cursor-pointer f-18 mx-2"
-                    onClick={() => toggleFaq(index)}
-                  />
-                ) : (
-                  <IoIosArrowUp
-                    className="cursor-pointer f-18 mx-2"
-                    onClick={() => toggleFaq(index)}
-                  />
-                )}
-              </div>
+              {!item?.disable && (
+                <div className="arrow ">
+                  {openIndex !== index ? (
+                    <IoIosArrowDown
+                      className="cursor-pointer f-18 mx-2"
+                      onClick={() => toggleFaq(index)}
+                    />
+                  ) : (
+                    <IoIosArrowUp
+                      className="cursor-pointer f-18 mx-2"
+                      onClick={() => toggleFaq(index)}
+                    />
+                  )}
+                </div>
+              )}
             </div>
           </div>
-          <div
-            className={`accordion-answer mx-3 ${
-              openIndex === index ? "open mt-3" : ""
-            }`}
-          >
-            {/* <p className="mt-2 mb-0">{item.answer}</p> */}
-            {item?.answer?.length > 0 ? (
-              <ul className="mb-0 p-0">
-                {item.answer.map((ans, i) => (
-                  <li
-                    key={i}
-                    onClick={() => {
-                      setOpen(true);
-                      setDetails({ ...ans, title: item.question });
-                    }}
-                    className="d-flex f-13 justify-content-between cursor-pointer align-items-center px-3 py-1"
-                  >
-                    <small className=" fw-700 Helvetica Neue">
-                      <CCTVIcon /> {ans.camera}
-                    </small>
-                    <small className="c-lightGrey">{ans.date_time}</small>
-                    <button
-                      className="c-blue Helvetica Neue"
-                      onClick={(e) => {
-                        e.stopPropagation();
+          {!item?.disable && (
+            <div
+              className={`accordion-answer mx-3 ${
+                openIndex === index ? "open mt-3" : ""
+              }`}
+            >
+              {/* <p className="mt-2 mb-0">{item.answer}</p> */}
+              {item?.answer?.length > 0 ? (
+                <ul className="mb-0 p-0">
+                  {item.answer.map((ans, i) => (
+                    <li
+                      key={i}
+                      onClick={() => {
+                        setOpen(true);
+                        setDetails({ ...ans, title: item.question });
                       }}
+                      className="d-flex f-13 justify-content-between cursor-pointer align-items-center px-3 py-1"
                     >
-                      Ignore
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="mb-0 text-center f-13">No Data!</p>
-            )}
-          </div>
+                      <small className=" fw-700 Helvetica Neue">
+                        <CCTVIcon /> {ans.camera}
+                      </small>
+                      <small className="c-lightGrey">{ans.date_time}</small>
+                      <button
+                        className="c-blue Helvetica Neue"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                        }}
+                      >
+                        Ignore
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="mb-0 text-center f-13">No Data!</p>
+              )}
+            </div>
+          )}
         </div>
       ))}
     </div>
