@@ -9,4 +9,7 @@ export const getlive_alert = "live_alert";
 export const getTraffic_analysis = "traffic_analysis";
 export const getAnprClassification = "getAnprClassification";
 
+export const postCameraDetails = "camera_mapping";
+
+
 export const postVoiceGenerator = "http://3.110.54.184:4000/ai/voice-generator"

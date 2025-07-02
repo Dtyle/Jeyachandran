@@ -27,7 +27,7 @@ const Header = () => {
       </header>
       <Container fluid className="content-layout pt-4 pb-5 mt-5">
         <Outlet />
-        {/* <FloatingMenu /> */}
+        <FloatingMenu />
       </Container>
     </React.Fragment>
   );

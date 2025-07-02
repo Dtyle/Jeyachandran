@@ -6,10 +6,11 @@ import { PiArrowUUpLeft, PiArrowUUpRight } from "react-icons/pi";
 import { LuRotateCcw } from "react-icons/lu";
 import { CameraFeedList } from "../utils";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import OutlineBtn from "../../../component/Button/OutlineBtn";
+import CustomButton from "../../../component/Button/CustomButton";
 
-const CameraMonitor = () => {
+const CameraMonitor = ({lines, setLines}) => {
   const [currentCamIndex, setCurrentCamIndex] = useState(0);
-  const [lines, setLines] = useState([]); // Store lines state
   const [startPoint, setStartPoint] = useState(null); // Start point for line
   const [tempLine, setTempLine] = useState(null); // Temporary line for preview
 
@@ -79,7 +80,6 @@ const CameraMonitor = () => {
     }
   };
 
-  console.log(lines);
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -179,8 +179,8 @@ const CameraMonitor = () => {
           <img src={camera} alt="i" /> {CameraFeedList[currentCamIndex].title}
         </p>
         <div className="d-flex gap-2">
-          <IoIosArrowBack onClick={prevCam} className="icons" />
-          <IoIosArrowForward onClick={nextCam} className="icons" />
+          {/* <IoIosArrowBack onClick={prevCam} className="icons" />
+          <IoIosArrowForward onClick={nextCam} className="icons" /> */}
         </div>
       </div>
 
@@ -212,6 +212,16 @@ const CameraMonitor = () => {
             onClick={startDrawing} // Handle the line drawing on click
             onMouseMove={handleMouseMove} // Handle the temporary line while moving the cursor
           />
+          {/* <div className="mt-3 d-flex gap-2">
+            <OutlineBtn
+              btnName="Add"
+              additionalStyle="w-100 radius-39 flex-grow-1"
+            />
+            <CustomButton
+              btnName="Save"
+              additionalStyle="w-100 radius-39 flex-grow-1"
+            />
+          </div> */}
         </div>
 
         <div
@@ -220,8 +230,8 @@ const CameraMonitor = () => {
         >
           <div>
             <GrFormEdit className="icon active mb-2" />
-            <LiaHashtagSolid className="icon mb-2" />
-            <LiaCodeBranchSolid className="icon mb-2" onClick={Submit} />
+            {/* <LiaHashtagSolid className="icon mb-2" />
+            <LiaCodeBranchSolid className="icon mb-2" onClick={Submit} /> */}
           </div>
           <div>
             <PiArrowUUpLeft className="icon mb-2" />

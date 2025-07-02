@@ -1,22 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import RuleDetails from "./component/RuleDetails";
 import "./Camerafeed.css";
-import CustomAndAlert from "./component/CustomAndAlert";
 import CameraMonitor from "./component/CameraMonitor";
-import ActionManagement from "./component/ActionManagement";
 
 const CameraFeed = () => {
+  const [lines, setLines] = useState([]); // Store lines state
+
   return (
     <React.Fragment>
       <Row className="mt-2 pb-5">
         <Col md={6} className="px-2">
-          <RuleDetails />
-          <CustomAndAlert />
+          <RuleDetails lines={lines} />
+          {/* <CustomAndAlert /> */}
         </Col>
         <Col md={6} className="px-2">
-          <CameraMonitor />
-          <ActionManagement />
+          <CameraMonitor lines={lines} setLines={setLines} />
+          {/* <ActionManagement /> */}
         </Col>
       </Row>
     </React.Fragment>

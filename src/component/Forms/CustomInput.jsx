@@ -11,6 +11,7 @@ const CustomInput = ({
   defaultlabel,
   Onchange,
   key_name,
+  value
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
@@ -26,6 +27,7 @@ const CustomInput = ({
             className={`form-control form-input ${specialClass}`}
             onChange={Onchange}
             name={key_name}
+            value={value}
           />
         );
       case "select":
@@ -49,6 +51,7 @@ const CustomInput = ({
             type={type}
             name={key_name}
             placeholder={placeholder}
+            value={value}
             className={`form-control form-input ${specialClass}`}
             onChange={Onchange}
           />
